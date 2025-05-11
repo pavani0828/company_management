@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Management</title>
+</head>
+<body>
+    <h1>Company List</h1>
+
+    <form method="POST" action="/add">
+        <input type="text" name="name" placeholder="Company Name" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <button type="submit">Add Company</button>
+    </form>
+
+    <ul>
+        {% for company in companies %}
+            <li>
+                {{ company.id }}. {{ company.name }} - {{ company.location }}
+                <a href="/delete/{{ company.id }}">[Delete]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
